@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pin Generator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+    <div class="container">
+        <div class="row">
+            <!--start pin generate area -->
+            <div class="col-md-6">
+                <div class="pin-generator half-width">
+                    <input id="gn-pin" class="form-control" type="text">
+                    <button id="gn-btn" class="generate-btn">Generate Pin</button>
+                </div>
+            </div>
+             <!--end pin generate area -->
+
+              <!--start pin submit area -->
+            <div class="col-md-6" >
+                <form action="" name="form">
+                <div class="input-section half-width">
+                    <input class="form-control" name="display" type="text">
+                    <div class="numbers">
+                        <div class="calc-body">
+
+                            <div class="calc-button-row" >
+                                <input type="button" class="button" name="" value="7" onclick="inputDigit(this.value)">
+                                <input type="button" class="button" name="" value="8" onclick="inputDigit(this.value)">
+                                <input type="button" class="button" name="" value="9" onclick="inputDigit(this.value)">
+                            </div>
+
+                            <div class="calc-button-row">
+                                <input type="button" class="button" name="" value="4" onclick="inputDigit(this.value)">
+                                <input type="button" class="button" name="" value="5" onclick="inputDigit(this.value)">
+                                <input type="button" class="button" name="" value="6" onclick="inputDigit(this.value)">
+                            </div>
+
+                            <div class="calc-button-row">
+                                <input type="button" class="button" name="" value="1" onclick="inputDigit(this.value)">
+                                <input type="button" class="button" name="" value="2" onclick="inputDigit(this.value)">
+                                <input type="button" class="button" name="" value="3" onclick="inputDigit(this.value)">
+                            </div>
+
+                            <div class="calc-button-row">
+                                <div id="delete" class="button" ><</div>
+
+                                <input type="button" class="button" name="" value="0" onclick="inputDigit(this.value)">
+                                <input type="button" name="btn" value="c" class="button" onclick="display.value = null">
+                            </div>
+
+                            <div>
+                                <button type="submit" class="submit-btn" id="form-submit" >Submit</button>
+                                <p class="action-left">3 try left</p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+        <!-- START NOTIFY SECTION -->
+        <div id="hidden" class="notify-section">
+            <p  class="notify ">❌ Pin Didn't Match, Please try again</p>
+            <p class="notify">✅ Pin Matched... Secret door is opening for you</p>
+        </div>
+        <!-- END NOTIFY SECTION -->
+
+    </div>
+     <!--end pin submit area -->
+
+    <script>
+
+    //  hide notify-section
+    const notifyItems = document.getElementById("hidden");
+    notifyItems.style.display = "none";
+
+
+    //input OTP digit
+
+    function inputDigit(x){
+        form.display.value = form.display.value + x;
+    }
+
+
+// Function to generate OTP
+
+document.getElementById("gn-btn").addEventListener("click",  function generateOTP() { 
+          
+    function generateOTP() { 
+          
+          // Declare a digits variable  
+          // which stores all digits 
+          var digits = '0123456789'; 
+          let OTP = ''; 
+          for (let i = 0; i < 4; i++ ) { 
+              OTP += digits[Math.floor(Math.random() * 10)]; 
+          } 
+          return OTP; 
+      } 
+      document.write( generateOTP() ); 
+      } )
+        
+
+
+      
+        // // Function to check Whether both passwords 
+        //     // is same or not. 
+        //     function checkPassword(form) { 
+        //         password1 = form.password1.value; 
+        //         password2 = form.password2.value; 
+  
+        //         // If password not entered 
+        //         if (password1 == '') 
+        //             alert ("Please enter Password"); 
+                      
+        //         // If confirm password not entered 
+        //         else if (password2 == '') 
+        //             alert ("Please enter confirm password"); 
+                      
+        //         // If Not same return False.     
+        //         else if (password1 != password2) { 
+        //             alert ("\nPassword did not match: Please try again...") 
+        //             return false; 
+        //         } 
+  
+        //         // If same return True. 
+        //         else{ 
+        //             alert("Password Match: !") 
+        //             return true; 
+        //         } 
+        //     }
+    
+
+
+    </script>
+
+</body>
+
+</html>
